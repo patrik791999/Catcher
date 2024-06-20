@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmm4kqul3wfh"]
+
+[ext_resource type="Script" path="res://scripts/GameOver.gd" id="1_aqkq3"]
+[ext_resource type="Texture2D" uid="uid://ci31pndghumhj" path="res://assets/background_blur.jpg" id="2_ufebn"]
+[ext_resource type="AudioStream" uid="uid://cq78j0vdjd57x" path="res://assets/Game-Menu_Looping.mp3" id="3_dap4y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_17ppm"]
+font_size = 50
+font_color = Color(0, 0, 0, 1)
+shadow_size = 9
+shadow_color = Color(0.227451, 0.227451, 0.227451, 0.835294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1i77i"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpos5"]
+bg_color = Color(0.373417, 0.624578, 0.840244, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ry77a"]
+bg_color = Color(0.580392, 0.52549, 0.968627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_aqkq3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(399, 800.5)
+scale = Vector2(0.779297, 1.56543)
+texture = ExtResource("2_ufebn")
+
+[node name="GameOverLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 600.0
+offset_right = 575.0
+offset_bottom = 700.0
+text = "Game Over !!!"
+label_settings = SubResource("LabelSettings_17ppm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 310.0
+offset_top = 450.0
+offset_right = 560.0
+offset_bottom = 505.0
+label_settings = SubResource("LabelSettings_1i77i")
+
+[node name="RestartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 800.0
+offset_right = 350.0
+offset_bottom = 900.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpos5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ry77a")
+text = "Restart Game"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 800.0
+offset_right = 650.0
+offset_bottom = 900.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpos5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ry77a")
+text = "Exit"
+
+[node name="AudioMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dap4y")
+autoplay = true

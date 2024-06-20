@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://j7e6phpiwqsd"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_ftfx7"]
+[ext_resource type="Texture2D" uid="uid://ci31pndghumhj" path="res://assets/background_blur.jpg" id="2_nfmu2"]
+[ext_resource type="AudioStream" uid="uid://cq78j0vdjd57x" path="res://assets/Game-Menu_Looping.mp3" id="3_44mdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jxxm"]
+bg_color = Color(0.373417, 0.624578, 0.840244, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tuqce"]
+bg_color = Color(0.580392, 0.52549, 0.968627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa04m"]
+bg_color = Color(0.372549, 0.623529, 0.839216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hboky"]
+bg_color = Color(0.580392, 0.52549, 0.968627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl4gb"]
+bg_color = Color(0.372549, 0.623529, 0.839216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l1x5q"]
+bg_color = Color(0.580319, 0.52658, 0.968049, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ftfx7")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(404, 794)
+scale = Vector2(0.777344, 1.54492)
+texture = ExtResource("2_nfmu2")
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 464.0
+offset_right = 512.0
+offset_bottom = 564.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_6jxxm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tuqce")
+text = "Start Game"
+
+[node name="InstructionsButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 614.0
+offset_right = 512.0
+offset_bottom = 714.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa04m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hboky")
+text = "Instructions"
+
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 312.0
+offset_top = 764.0
+offset_right = 512.0
+offset_bottom = 864.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yl4gb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l1x5q")
+text = "Exit"
+
+[node name="AudioMenu" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_44mdn")
+autoplay = true

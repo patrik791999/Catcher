@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0f6lmyjhx5fv"]
+
+[ext_resource type="Script" path="res://scripts/Chipset.gd" id="1_0afvq"]
+[ext_resource type="Texture2D" uid="uid://c408jxw3q0u4x" path="res://assets/chipset.png" id="2_1frfj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5w84"]
+radius = 27.074
+
+[node name="Chipset" type="Area2D"]
+position = Vector2(293, -70)
+scale = Vector2(0.9, 0.803)
+script = ExtResource("1_0afvq")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_1frfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_e5w84")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

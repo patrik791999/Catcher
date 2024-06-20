@@ -1,0 +1,196 @@
+[gd_scene load_steps=20 format=3 uid="uid://byam4qi8ltqb2"]
+
+[ext_resource type="Texture2D" uid="uid://dijx8by463j6k" path="res://assets/background.png" id="1_ak8bo"]
+[ext_resource type="Script" path="res://scripts/Gameworld.gd" id="1_cpfwk"]
+[ext_resource type="PackedScene" uid="uid://ckjjwuq8q2xq0" path="res://scenes/player.tscn" id="3_w1gux"]
+[ext_resource type="PackedScene" uid="uid://yegxucjan5q8" path="res://scenes/book.tscn" id="4_2ycj3"]
+[ext_resource type="PackedScene" uid="uid://ctiu8cd77wmg3" path="res://scenes/bomb.tscn" id="5_stvw7"]
+[ext_resource type="PackedScene" uid="uid://c0f6lmyjhx5fv" path="res://scenes/chipset.tscn" id="6_iwtsq"]
+[ext_resource type="Texture2D" uid="uid://ci31pndghumhj" path="res://assets/background_blur.jpg" id="7_8klrn"]
+[ext_resource type="AudioStream" uid="uid://byaym3xnfps4u" path="res://assets/Good-Morning-Doctor-Weird.mp3" id="8_c8ves"]
+[ext_resource type="AudioStream" uid="uid://cq78j0vdjd57x" path="res://assets/Game-Menu_Looping.mp3" id="8_erov8"]
+[ext_resource type="AudioStream" uid="uid://16qin71l6qeo" path="res://assets/Explosion1.mp3" id="10_7tyyw"]
+[ext_resource type="AudioStream" uid="uid://1l0r3jrc86u4" path="res://assets/SynthChime1.mp3" id="11_8fweo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3e6tu"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7t744"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1u8m7"]
+bg_color = Color(0.373417, 0.624578, 0.840244, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4q8c"]
+bg_color = Color(0.580392, 0.52549, 0.968627, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8n3kl"]
+bg_color = Color(0.372549, 0.623529, 0.839216, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sxpbl"]
+bg_color = Color(0.580319, 0.52658, 0.968049, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7yno"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.764706)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eyd7i"]
+font_size = 35
+font_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0, 0, 0, 0.764706)
+
+[node name="Gameworld" type="Node2D"]
+script = ExtResource("1_cpfwk")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(400, 798.5)
+scale = Vector2(0.78125, 1.55957)
+texture = ExtResource("1_ak8bo")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_w1gux")]
+
+[node name="Book" parent="." instance=ExtResource("4_2ycj3")]
+
+[node name="Bomb" parent="." instance=ExtResource("5_stvw7")]
+
+[node name="Chipset" parent="." instance=ExtResource("6_iwtsq")]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 170.0
+offset_bottom = 60.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_3e6tu")
+
+[node name="LivesLabel" type="Label" parent="."]
+offset_left = 625.0
+offset_top = 10.0
+offset_right = 785.0
+offset_bottom = 60.0
+text = "Lives: 3"
+label_settings = SubResource("LabelSettings_7t744")
+
+[node name="MenuButton" type="Button" parent="."]
+offset_left = 300.0
+offset_top = 10.0
+offset_right = 500.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_1u8m7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k4q8c")
+text = "Main Menu"
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+
+[node name="PauseMenuControl" type="Control" parent="PauseMenu"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="background" type="Sprite2D" parent="PauseMenu/PauseMenuControl"]
+position = Vector2(401, 802)
+scale = Vector2(0.78125, 1.56836)
+texture = ExtResource("7_8klrn")
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/PauseMenuControl"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 600.0
+offset_right = 500.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8n3kl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sxpbl")
+text = "Resume"
+
+[node name="ExitButton" type="Button" parent="PauseMenu/PauseMenuControl"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 750.0
+offset_right = 500.0
+offset_bottom = 850.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_8n3kl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sxpbl")
+text = "Exit"
+
+[node name="ScoreLabel" type="Label" parent="PauseMenu/PauseMenuControl"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 500.0
+offset_right = 350.0
+offset_bottom = 550.0
+label_settings = SubResource("LabelSettings_g7yno")
+
+[node name="LivesLabel" type="Label" parent="PauseMenu/PauseMenuControl"]
+layout_mode = 0
+offset_left = 525.0
+offset_top = 500.0
+offset_right = 725.0
+offset_bottom = 550.0
+label_settings = SubResource("LabelSettings_eyd7i")
+
+[node name="AudioMenu" type="AudioStreamPlayer2D" parent="PauseMenu/PauseMenuControl"]
+stream = ExtResource("8_erov8")
+
+[node name="AudioGame" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_c8ves")
+autoplay = true
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_7tyyw")
+
+[node name="ItemCatched" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_8fweo")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
